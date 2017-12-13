@@ -1,0 +1,289 @@
+######################################
+########## Gavin Weiss's i3 config file #########
+######################################
+
+## To refresh the i3 config file to default, delete this and run i3-config-wizard
+
+## Modifier Key
+set $mod Mod4
+
+## To fix gaps
+for_window [class="^.*"] border pixel 0
+
+## Gaps
+gaps inner 6
+gaps outer 0
+
+## Font for window titles
+font pango:ttf-liberation 
+
+## System Font
+font pango:ttf-dejavu,9
+
+## Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+## Keybinding to launch terminal
+bindsym $mod+Return exec terminator
+
+## Kill focused window
+bindsym $mod+k kill
+
+## Start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run -nb black -sb black -sf green
+
+## Start rofi
+bindsym $mod+d exec rofi -show run
+
+## i3-menu-desktop only shows applications that have a .desktop
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+
+## Changing focus using arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+
+## Moves a window using arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Split in horizontal orientation
+bindsym $mod+h split h
+
+## Split in vertical orientation
+bindsym $mod+v split v
+
+## Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+## Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+## Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+## change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+## focus the parent container
+bindsym $mod+a focus parent
+
+## Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+## Switch to workspaces using numpad
+bindsym $mod+KP_End workspace 11
+bindsym $mod+KP_Down workspace 12
+bindsym $mod+KP_Next workspace 13
+bindsym $mod+KP_Left workspace 14
+bindsym $mod+KP_Begin workspace 15
+bindsym $mod+KP_Right workspace 16
+bindsym $mod+KP_Home workspace 17
+bindsym $mod+KP_Up workspace 18
+bindsym $mod+KP_Prior workspace 19
+
+## Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+## Move container to workspace above 10 using numpad
+bindsym $mod+Shift+KP_End move container to workspace 11
+bindsym $mod+Shift+KP_Down move container to workspace 12
+bindsym $mod+Shift+KP_Next move container to workspace 13
+bindsym $mod+Shift+KP_Left move container to workspace 14
+bindsym $mod+Shift+KP_Begin move container to workspace 15
+bindsym $mod+Shift+KP_Right move container to workspace 16
+bindsym $mod+Shift+KP_Home move container to workspace 17
+bindsym $mod+Shift+KP_Up move container to workspace 18
+bindsym $mod+Shift+KP_Prior move container to workspace 19
+bindsym $mod+Shift+KP_Insert move container to workspace 20
+
+# Reload the configuration file
+bindsym $mod+Shift+Ctrl+r reload
+
+## Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+## Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+## Resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+## Colors
+set $bg-color #001e22
+
+## Startup Programs
+
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id nm-applet
+exec --no-startup-id gnome-sound-applet
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Concepts/1.jpg
+exec --no-startup-id compton
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id xrdb -merge ~/.Xresources
+#exec --no-startup-id conky -b
+#exec --no-startup-id /usr/lib/lxpolkit/lxpolkit
+#exec --no-startup-id sudo systemctl start bluetooth.service
+
+####################################
+######### Custom Keybinds ##############
+####################################
+
+## Wallpaper Switching using number homerow
+bindsym $Mod+Ctrl+1 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/1.jpg
+bindsym $Mod+Ctrl+2 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/2.jpg
+bindsym $Mod+Ctrl+3 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/3.jpg
+bindsym $Mod+Ctrl+4 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/4.jpg
+bindsym $Mod+Ctrl+5 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/5.jpg
+bindsym $Mod+Ctrl+6 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/6.jpg
+bindsym $Mod+Ctrl+7 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/7.jpg
+bindsym $Mod+Ctrl+8 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/8.jpg
+bindsym $Mod+Ctrl+9 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/9.jpg
+bindsym $Mod+Ctrl+0 exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/10.jpg
+
+## Pywal
+bindsym $Mod+Ctrl+Shift+1 exec wal -i ~/Pictures/Wallpapers/Concepts/1.jpg
+bindsym $Mod+Ctrl+Shift+2 exec wal -i ~/Pictures/Wallpapers/Concepts/2.jpg
+bindsym $Mod+Ctrl+Shift+3 exec wal -i ~/Pictures/Wallpapers/Concepts/3.jpg
+bindsym $Mod+Ctrl+Shift+4 exec wal -i ~/Pictures/Wallpapers/Concepts/4.jpg
+bindsym $Mod+Ctrl+Shift+5 exec wal -i ~/Pictures/Wallpapers/Concepts/5.jpg
+bindsym $Mod+Ctrl+Shift+6 exec wal -i ~/Pictures/Wallpapers/Concepts/6.jpg
+bindsym $Mod+Ctrl+Shift+7 exec wal -i ~/Pictures/Wallpapers/Concepts/7.jpg
+bindsym $Mod+Ctrl+Shift+8 exec wal -i ~/Pictures/Wallpapers/Concepts/8.jpg
+bindsym $Mod+Ctrl+Shift+9 exec wal -i ~/Pictures/Wallpapers/Concepts/9.jpg
+bindsym $Mod+Ctrl+Shift+0 exec wal -i ~/Pictures/Wallpapers/Concepts/10.jpg
+
+## Wallpaper Switching using keypad
+bindsym $mod+Ctrl+KP_End exec feh --bg-fill ~/Pictures/Wallpapers/DS/ds3-1.jpg
+bindsym $mod+Ctrl+KP_Down exec feh --bg-fill ~/Pictures/Wallpapers/DS/ds3-2.jpg
+bindsym $mod+Ctrl+KP_Next exec feh --bg-fill ~/Pictures/Wallpapers/DS/ds3-3.jpg
+bindsym $mod+Ctrl+KP_Left exec feh --bg-fill ~/Pictures/Wallpapers/DS/ds3-4.jpg
+bindsym $mod+Ctrl+KP_Begin exec feh --bg-fill ~/Pictures/Wallpapers/DS/ds3-5.jpg
+bindsym $mod+Ctrl+KP_Right exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/6.jpg
+bindsym $mod+Ctrl+KP_Home exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/7.jpg
+bindsym $mod+Ctrl+KP_Up exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/8.jpg
+bindsym $mod+Ctrl+KP_Prior exec feh --bg-scale ~/Pictures/Wallpapers/Concepts/11.jpe
+bindsym $mod+Ctrl+KP_Insert exec feh --bg ~/Pictures/Wallpapers/Concepts/12.jpg
+
+## Misc Keybinds
+bindsym $Mod+Shift+Return exec gnome-terminal
+bindsym $Mod+Ctrl+Shift+e exec gedit ~/.config/i3/config
+bindsym $Mod+Shift+f exec firefox
+bindsym $Mod+Shift+c exec google-chrome-stable
+bindsym $Mod+Shift+Ctrl+c exec chromium
+bindsym $Mod+Ctrl+c exec conky 
+bindsym $Mod+Ctrl+k exec killall conky
+bindsym $Mod+Ctrl+r exec terminator -e ranger
+bindsym $Mod+Ctrl+Shift+p exec polybar polybar
+bindsym $Mod+Ctrl+Space exec "rofi -show run"
+bindsym $Mod+Shift exec atom
+bindsym $Mod+Ctrl+s exec maim ~/Pictures/Screenshots/$(date +%s).png
+ 
+## Caps Lock Indicator
+#bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+#bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+## i3lock
+bindsym $Mod+Shift+l exec i3lock-fancy -p -t ""  
+
+## Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+## Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+## Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+## Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+
+#######################
+####### Backups #########
+#######################
+
+# move focused window
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
+
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+## Using jkl; to change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
+
+## focus the child container
+#bindsym $mod+d focus child
+
+##### Reference
+#bindsym $mod+Ctrl+KP_End 
+#bindsym $mod+Ctrl+KP_Down 
+#bindsym $mod+Ctrl+KP_Next 
+#bindsym $mod+Ctrl+KP_Left 
+#bindsym $mod+Ctrl+KP_Begin 
+#bindsym $mod+Ctrl+KP_Right 
+#bindsym $mod+Ctrl+KP_Home 
+#bindsym $mod+Ctrl+KP_Up 
+#bindsym $mod+Ctrl+KP_Prior  
+#bindsym $mod+Ctrl+KP_Insert
+
+
