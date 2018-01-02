@@ -15,15 +15,28 @@
 "        |VVV/'++/#/+/#/ /#/ /#/
 "        'V/'  /##//##//##//###/
 "                ++
+" Credits List 
+" - /mitchweaver : Cool Vim Logo
+
+"" Notes "" 
+" Press F2 to toggle line numbers "
 
 "" Appearance ""
+set ruler
+set number
 set ttyfast
 syntax on
-colorscheme delek
+set cmdwinheight=2
+
 
 "" Keybindings ""
-map ; :
+map ; : 
+map <F2> :set number <CR>
+map <F2> :set number! <CR>
+
 
 "" Misc ""
 set noswapfile
+set nocompatible
 set tabstop=4
+set shiftwidth=4
