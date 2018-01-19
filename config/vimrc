@@ -1,5 +1,13 @@
-"" Gavin's .vimrc - December 2017 ""
+""""""""""""""""""""""""""""""""""""""">
+""""""""""""""""""""""""""""""""""""""">
+" >> HastyVim
 "
+" >> January 2018
+"
+" >> Version 1.1
+"
+""""""""""""""""""""""""""""""""""""""">
+""""""""""""""""""""'"""""""""""""""""">
 "         ________ ++     ________
 "       /VVVVVVVV\++++  /VVVVVVVV\
 "       \VVVVVVVV/++++++\VVVVVVVV/
@@ -15,28 +23,43 @@
 "        |VVV/'++/#/+/#/ /#/ /#/
 "        'V/'  /##//##//##//###/
 "                ++
-" Credits List 
-" - /mitchweaver : Cool Vim Logo
-
-"" Notes "" 
-" Press F2 to toggle line numbers "
-
-"" Appearance ""
-set ruler
-set number
-set ttyfast
-syntax on
-set cmdwinheight=2
+""""""""""""""""""""""""""""""""""""""">
+""""""""""""""""""""""""""""""""""""""">
 
 
-"" Keybindings ""
-map ; : 
-map <F2> :set number <CR>
-map <F2> :set number! <CR>
+""""""""""""""""""""""""""""""""""""""">
+"" -=> General <=-
+""""""""""""""""""""""""""""""""""""""">
 
+filetype indent on
 
-"" Misc ""
+set nocompatible  
+
 set noswapfile
-set nocompatible
+
+set ttyfast
+
+set autoindent
+
 set tabstop=4
-set shiftwidth=4
+
+
+""""""""""""""""""""""""""""""""""""""">
+"" -=> Appearance <=- 
+""""""""""""""""""""""""""""""""""""""">
+
+set ruler
+
+set colorscheme delek
+
+
+""""""""""""""""""""""""""""""""""""""">
+"" -=> Keybindings <=-
+""""""""""""""""""""""""""""""""""""""">
+map ; : 
+
+map <silent> <F2> :set number <CR>
+map <silent> <F2> :set number! <CR>
+
+map <silent> <F3> :set cursorline <CR>
+map <silent> <F3> :set cursorline! <CR>
