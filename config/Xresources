@@ -1,89 +1,16 @@
-!-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
-
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
-
-! Fix font space
-URxvtURxvt.letterSpace: 1
-
-! Scrollbar
-URxvt.scrollStyle:          rxvt
-URxvt.scrollBar:            false
-
-! Border
-URxvt.externalBorder:	10
-
-! Cursor
-URxvt.cursorBlink:          false
-URxvt.cursorColor:          #657b83
-URxvt.cursorUnderline:      false
-
-! Pointer
-URxvt.pointerBlank:         true
-
-!baskerville - ivory dark
-URxvt.background:  #2D2C28
-URxvt.foreground:  #A4A6AB
+! URxvt
+  
+URxvt.scrollBar:    false
+URxvt.internalBorder:   15
+URxvt.transparent:  true
+URxvt.shading:  10
 
 
-! BLACK
-URxvt.color0:      #5B5955
-URxvt.color8:      #707277
-
-! WHITE
-URxvt.color7:      #DBDDE2
-URxvt.color15:     #F7F9FF
-
-! RED
-URxvt.color1:      #C4756E
-URxvt.color9:      #F6A299
-
-! YELLOW
-URxvt.color3:      #9B8A4B
-URxvt.color11:     #CAB775
-
-! GREEN
-URxvt.color2:      #559A6A
-URxvt.color10:     #82C896
-
-! CYAN
-URxvt.color6:      #019BAA
-URxvt.color14:     #53CAD9
-
-! BLUE
-URxvt.color4:      #6A8DCA
-URxvt.color12:     #98BBFB
-
-! MAGENTA
-URxvt.color5:      #B577AC
-URxvt.color13:     #E5A4DB
-
-
-rofi.color-enabled: true
-
-!                  bg       border   separator
-rofi.color-window: #282828, #a89984, #a89984
-
-!                  bg       fg       bg-alt   hl-bg    hl-fg
-rofi.color-normal: #282828, #ebdbb2, #32302f, #665c54, #fbf1c7
-rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
-rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828
-
-rofi.separator-style: solid
-rofi.sidebar-mode: true
-rofi.bw: 1
-rofi.columns: 1
-rofi.padding: 16
-rofi.fullscreen: replace
-rofi.yoffset: 0
-rofi.fake-transparency: false
-rofi.location: 0
-rofi.width: 50
-rofi.font: Hasklig 12
-rofi.lines: 10 
-rofi.fixed-num-lines: true
+! Rofi
+rofi.lines: 5
+rofi.width: 30
+rofi.bw:    10
+rofi.padding:   10
+rofi.location:  6
+rofi.X-offset:  5
+rofi.Y-offset:  5
