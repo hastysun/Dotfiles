@@ -1,42 +1,69 @@
-##################################
-## Gavin Weiss's i3 Config File ##
-##         Version 0.3          ##
-##################################
+## Gavin's i3 config
+## January 2018
+## Version 0.5
 
-##> Modifier Key
+
+## Mod Key
 set $Mod Mod4
 
 
-##> Window Titles
-for_window [class="^.*"] border pixel 0
-
-
-##> Gaps
-gaps inner 15
+## Gaps
+gaps inner 20
 gaps outer 0
 
 
-##> Terminal
-bindsym $Mod+Return exec urxvt
+## Terminal
+bindsym $Mod+Return exec urxvt --depth 32
 
 
-##> Kill Window
+## Fallback Terminal
+bindsym $Mod+Shift+Return st -f mono
+
+
+## Floating Modifier
+floating_modifier Mod4
+
+
+## Kill Window
 bindsym $Mod+k kill
 
 
-##> Application Launcher
-bindsym $Mod+d exec dmenu_run -sb gray -sf blue
+## Launcher
+bindsym $Mod+d exec rofi -show run
 
 
-##> Reload i3 Configuration File
-bindsym $Mod+Shift+r restart
+## Fallback Launcher
+bindsym $Mod+Shift+d exec dmenu_run -nb black -sb black -sf green
 
 
-##> Font
-font pango:ttf-dejavu,9
+## Change Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 
-##> Switch Workspaces
+## Move Window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+## Split Window
+bindsym $Mod+h split h 
+bindsym $Mod+v split v 
+
+
+## Fullscreen
+bindsym $Mod+f fullscreen toggle
+
+
+## Toggle between Floating and Tiling
+bindsym $Mod+Shift+Space floating toggle
+
+
+## Switch To Workspace
 bindsym $Mod+1 workspace 1
 bindsym $Mod+2 workspace 2
 bindsym $Mod+3 workspace 3
@@ -46,21 +73,10 @@ bindsym $Mod+6 workspace 6
 bindsym $Mod+7 workspace 7
 bindsym $Mod+8 workspace 8
 bindsym $Mod+9 workspace 9
+bindsym $Mod+0 workspace 10
 
 
-##> Shift Windows
-bindsym $Mod+Shift+Left move left
-bindsym $Mod+Shift+Down move down
-bindsym $Mod+Shift+Up move up
-bindsym $Mod+Shift+Right move right
-
-
-##> Splitting Horizontal / Vertical
-bindsym $Mod+h split h
-bindsym $Mod+v split v
-
-
-##> Move Window To Workspace
+## Move Window to Workspace
 bindsym $Mod+Shift+1 move container to workspace 1
 bindsym $Mod+Shift+2 move container to workspace 2
 bindsym $Mod+Shift+3 move container to workspace 3
@@ -70,22 +86,60 @@ bindsym $Mod+Shift+6 move container to workspace 6
 bindsym $Mod+Shift+7 move container to workspace 7
 bindsym $Mod+Shift+8 move container to workspace 8
 bindsym $Mod+Shift+9 move container to workspace 9
+bindsym $Mod+Shift+0 move container to workspace 10
 
 
-##> Change Focus
-bindsym $Mod+Left focus left
-bindsym $Mod+Down focus down
-bindsym $Mod+Up focus up
-bindsym $Mod+Right focus right
+## Restart i3
+bindsym $Mod+Shift+r restart
 
 
-##> Keybindings
+## Misc Keybindings
+bindsym $Mod+Shift+h exec sh ~/Documents/Games/Hotline\ Miami\ 2\ Wrong\ Number/start.sh
 bindsym $Mod+Ctrl+s exec i3-scrot
+bindsym $Mod+l exec i3lock-fancy -p -t ""
 
 
-##> Startup
+## Startup 
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Forest/7.jpg
 exec --no-startup-id compton
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper-5.jpg
-exec --no-startup-id wal -i ~/Pictures/Wallpapers/wallpaper-5.jpg
-exec --no-startup-id xrdb merge ~/.Xresources
-                                                                                                                                      
+exec_always --no-startup-id xrdb -merge ~/.Xresources
+exec_always --no-startup-id wal -i ~/Pictures/Wallpapers/Forest/7.jpg
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id dunst
+
+## Multimedia
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+
+## Misc
+for_window [class="^.*"] border pixel 0
+
+
+## Resize
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+        
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+        
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}       
+
+bindsym $Mod+r mode "resize"
