@@ -1,10 +1,14 @@
 ## Gavin's i3 config
-## January 2018
+## March 2018
 ## Version 0.5
 
 
-## Mod Key
+## First Mod Key
 set $Mod Mod4
+
+
+## Second Mod Key
+set $Mod1 Mod1
 
 
 ## Gaps
@@ -13,11 +17,11 @@ gaps outer 0
 
 
 ## Terminal
-bindsym $Mod+Return exec urxvt --depth 32
+bindsym $Mod+Return exec termite
 
 
 ## Fallback Terminal
-bindsym $Mod+Shift+Return st -f mono
+bindsym $Mod+Shift+Return exec st
 
 
 ## Floating Modifier
@@ -28,39 +32,54 @@ floating_modifier Mod4
 bindsym $Mod+k kill
 
 
+## Clipboard
+bindsym $Mod+p exec clipmenu
+
+
 ## Launcher
-bindsym $Mod+d exec rofi -show run
+bindsym $Mod+d exec dmenu_run -p run -nb black -nf gray -sb grey -sf black
 
 
-## Fallback Launcher
-bindsym $Mod+Shift+d exec dmenu_run -nb black -sb black -sf green
+## Floating
+bindsym $Mod+f floating toggle
 
 
-## Change Focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+## Sticky Windows
+bindsym $Mod+s sticky toggle
+## Cycle Through Workspaces
+# bindsym $Mod1+Tab workspace next
 
 
-## Move Window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+## Workspace Cycling
+bindcode 167 workspace next
+bindcode 166 workspace prev
+
+
+## Font
+font pango:Terminus 10
+
+
+## Change Focus Using Arrow Keys
+bindsym $Mod+Left focus left
+bindsym $Mod+Down focus down
+bindsym $Mod+Up focus up
+bindsym $Mod+Right focus right
+
+
+## Move Window Using Arrow Keys
+bindsym $Mod+Shift+Left move left
+bindsym $Mod+Shift+Down move down
+bindsym $Mod+Shift+Up move up
+bindsym $Mod+Shift+Right move right
 
 
 ## Split Window
-bindsym $Mod+h split h 
-bindsym $Mod+v split v 
+bindsym $Mod+h split h
+bindsym $Mod+v split v
 
 
 ## Fullscreen
-bindsym $Mod+f fullscreen toggle
-
-
-## Toggle between Floating and Tiling
-bindsym $Mod+Shift+Space floating toggle
+bindsym $Mod+Shift+f fullscreen toggle
 
 
 ## Switch To Workspace
@@ -89,29 +108,58 @@ bindsym $Mod+Shift+9 move container to workspace 9
 bindsym $Mod+Shift+0 move container to workspace 10
 
 
+## Colors 
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+
+## Wallpaper Switching
+bindsym $Mod+Ctrl+1 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/japanese-2.jpg
+bindsym $Mod+Ctrl+2 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/road.jpg
+bindsym $Mod+Ctrl+3 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/comf.jpg
+bindsym $Mod+Ctrl+4 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/japanese-3.jpg
+bindsym $Mod+Ctrl+5 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/rocky_coast.jpg
+bindsym $Mod+Ctrl+6 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/valley.jpg
+bindsym $Mod+Ctrl+7 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/.jpg
+bindsym $Mod+Ctrl+8 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/.jpg
+bindsym $Mod+Ctrl+9 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/.jpg
+
+
 ## Restart i3
 bindsym $Mod+Shift+r restart
 
 
+## Lock
+bindcode 156 exec i3lock-fancy -p -t ""
+#bindsym $Mod+Ctrl+l exec i3lock-fancy -p -t ""
+
 ## Misc Keybindings
-bindsym $Mod+Shift+h exec sh ~/Documents/Games/Hotline\ Miami\ 2\ Wrong\ Number/start.sh
 bindsym $Mod+Ctrl+s exec i3-scrot
-bindsym $Mod+l exec i3lock-fancy -p -t ""
+bindsym $Mod+Ctrl+w exec find ~/Pictures/Wallpapers -type f | shuf | head -1 | xargs -I '{}' feh --bg-scale {}
+
 
 
 ## Startup 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Forest/7.jpg
-exec --no-startup-id compton
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Landscapes/forest-house.jpg
+#exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+#exec --no-startup-id compton
 exec_always --no-startup-id xrdb -merge ~/.Xresources
-exec_always --no-startup-id wal -i ~/Pictures/Wallpapers/Forest/7.jpg
-#exec_always --no-startup-id ~/.config/polybar/launch.sh
+#exec_always --no-startup-id wal -n -i ~/Pictures/Wallpapers/Landscapes/beach.jpg -a 95
 exec --no-startup-id dunst
+#exec --no-startup-id compton
+
 
 ## Multimedia
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 
 ## Misc
@@ -120,26 +168,47 @@ for_window [class="^.*"] border pixel 0
 
 ## Resize
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
-        
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-        
-        # back to normal: Enter or Escape
+
+        bindsym $left       resize shrink width 20 px or 20 ppt
+        bindsym $down       resize grow height 20 px or 20 ppt
+        bindsym $up         resize shrink height 20 px or 20 ppt
+        bindsym $right      resize grow width 20 px or 20 ppt
+
+        bindsym Left        resize shrink width 20 px or 20 ppt
+        bindsym Down        resize grow height 20 px or 20 ppt
+        bindsym Up      resize shrink height 20 px or 20 ppt
+        bindsym Right       resize grow width 20 px or 20 ppt
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
-}       
+}
 
 bindsym $Mod+r mode "resize"
+
+
+## Accurate Resizing
+mode "acc_resize" {
+
+        bindsym $left       resize shrink width 5 px or 5 ppt
+        bindsym $down       resize grow height 5 px or 5 ppt
+        bindsym $up         resize shrink height 5 px or 5 ppt
+        bindsym $right      resize grow width 5 px or 5 ppt
+
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up      resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 5 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+
+
+}
+
+bindsym $Mod1+r mode "acc_resize"
+
+
+## Auto Sizing 
+for_window [title="SimpleGUI"] floating enable
+
+
