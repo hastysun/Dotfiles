@@ -17,11 +17,15 @@ gaps outer 0
 
 
 ## Terminal
-bindsym $Mod+Return exec termite
+bindsym $Mod+Return exec urxvt
 
 
 ## Fallback Terminal
-bindsym $Mod+Shift+Return exec st
+bindsym $Mod1+Return exec st
+
+
+## Secondary Fallback Terminal
+bindsym $Mod+Shift+Return exec termite
 
 
 ## Floating Modifier
