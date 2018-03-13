@@ -1,7 +1,6 @@
 ## Gavin's i3 config
-## March 2018
-## Version 0.5
-
+## March 2018 
+## Version 0.5 
 
 ## First Mod Key
 set $Mod Mod4
@@ -11,29 +10,29 @@ set $Mod Mod4
 set $Mod1 Mod1
 
 
+## Floating Modifier
+floating_modifier Mod4
+
+
 ## Gaps
 gaps inner 20
 gaps outer 0
 
 
 ## Terminal
-bindsym $Mod+Return exec urxvt
+bindsym $Mod+Return exec st
 
 
 ## Fallback Terminal
-bindsym $Mod1+Return exec st
+bindsym $Mod1+Return exec urxvt
 
 
 ## Secondary Fallback Terminal
 bindsym $Mod+Shift+Return exec termite
 
 
-## Floating Modifier
-floating_modifier Mod4
-
-
 ## Kill Window
-bindsym $Mod+k kill
+bindsym $Mod+q kill
 
 
 ## Clipboard
@@ -50,6 +49,8 @@ bindsym $Mod+f floating toggle
 
 ## Sticky Windows
 bindsym $Mod+s sticky toggle
+
+
 ## Cycle Through Workspaces
 # bindsym $Mod1+Tab workspace next
 
@@ -64,22 +65,22 @@ font pango:Terminus 10
 
 
 ## Change Focus Using Arrow Keys
-bindsym $Mod+Left focus left
-bindsym $Mod+Down focus down
-bindsym $Mod+Up focus up
-bindsym $Mod+Right focus right
+bindsym $Mod+h focus left
+bindsym $Mod+j focus down
+bindsym $Mod+k focus up
+bindsym $Mod+l focus right
 
 
 ## Move Window Using Arrow Keys
-bindsym $Mod+Shift+Left move left
-bindsym $Mod+Shift+Down move down
-bindsym $Mod+Shift+Up move up
-bindsym $Mod+Shift+Right move right
+bindsym $Mod+Shift+h move left
+bindsym $Mod+Shift+j move down
+bindsym $Mod+Shift+k move up
+bindsym $Mod+Shift+l move right
 
 
 ## Split Window
-bindsym $Mod+h split h
-bindsym $Mod+v split v
+bindsym $Mod+Ctrl+h split h 
+bindsym $Mod+Ctrl+v split v 
 
 
 ## Fullscreen
@@ -144,6 +145,7 @@ bindsym $Mod+Shift+r restart
 bindcode 156 exec i3lock-fancy -p -t ""
 #bindsym $Mod+Ctrl+l exec i3lock-fancy -p -t ""
 
+
 ## Misc Keybindings
 bindsym $Mod+Ctrl+s exec i3-scrot
 bindsym $Mod+Ctrl+w exec find ~/Pictures/Wallpapers -type f | shuf | head -1 | xargs -I '{}' feh --bg-scale {}
@@ -151,19 +153,18 @@ bindsym $Mod+Ctrl+w exec find ~/Pictures/Wallpapers -type f | shuf | head -1 | x
 
 
 ## Startup 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Landscapes/forest-house.jpg
-#exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-#exec --no-startup-id compton
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Minimalist/minimalist.jpg
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+exec --no-startup-id compton
 exec_always --no-startup-id xrdb -merge ~/.Xresources
-#exec_always --no-startup-id wal -n -i ~/Pictures/Wallpapers/Landscapes/beach.jpg -a 95
+# exec_always --no-startup-id wal -n -i ~/Pictures/Wallpapers/Landscapes/beach.jpg -a 95
 exec --no-startup-id dunst
-#exec --no-startup-id compton
 
 
 ## Multimedia
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% 
 
 
 ## Misc
@@ -173,19 +174,19 @@ for_window [class="^.*"] border pixel 0
 ## Resize
 mode "resize" {
 
-        bindsym $left       resize shrink width 20 px or 20 ppt
-        bindsym $down       resize grow height 20 px or 20 ppt
-        bindsym $up         resize shrink height 20 px or 20 ppt
-        bindsym $right      resize grow width 20 px or 20 ppt
-
-        bindsym Left        resize shrink width 20 px or 20 ppt
-        bindsym Down        resize grow height 20 px or 20 ppt
-        bindsym Up      resize shrink height 20 px or 20 ppt
-        bindsym Right       resize grow width 20 px or 20 ppt
-
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+        
+        bindsym h        resize shrink width 10 px or 10 ppt
+        bindsym j        resize grow height 10 px or 10 ppt
+        bindsym k      resize shrink height 10 px or 10 ppt
+        bindsym l       resize grow width 10 px or 10 ppt
+        
         bindsym Return mode "default"
         bindsym Escape mode "default"
-}
+}       
 
 bindsym $Mod+r mode "resize"
 
@@ -193,15 +194,15 @@ bindsym $Mod+r mode "resize"
 ## Accurate Resizing
 mode "acc_resize" {
 
-        bindsym $left       resize shrink width 5 px or 5 ppt
-        bindsym $down       resize grow height 5 px or 5 ppt
-        bindsym $up         resize shrink height 5 px or 5 ppt
-        bindsym $right      resize grow width 5 px or 5 ppt
+		bindsym $left       resize shrink width 2 px or 2 ppt
+        bindsym $down       resize grow height 2 px or 2 ppt
+        bindsym $up         resize shrink height 2 px or 2 ppt
+        bindsym $right      resize grow width 2 px or 2 ppt
 
-        bindsym Left        resize shrink width 5 px or 5 ppt
-        bindsym Down        resize grow height 5 px or 5 ppt
-        bindsym Up      resize shrink height 5 px or 5 ppt
-        bindsym Right       resize grow width 5 px or 5 ppt
+        bindsym Left        resize shrink width 2 px or 2 ppt
+        bindsym Down        resize grow height 2 px or 2 ppt
+        bindsym Up      resize shrink height 2 px or 2 ppt
+        bindsym Right       resize grow width 2 px or 2 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -214,5 +215,3 @@ bindsym $Mod1+r mode "acc_resize"
 
 ## Auto Sizing 
 for_window [title="SimpleGUI"] floating enable
-
-
