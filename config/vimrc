@@ -2,7 +2,7 @@
 """"""""""""""""""""""""""""""""""""""">
 " >> HastyVim
 "
-" >> January 2018
+" >> March 2018
 "
 " >> Version 1.1
 "
@@ -58,16 +58,45 @@ syntax on
 """"""""""""""""""""""""""""""""""""""">
 "" -=> Keybindings <=-
 """"""""""""""""""""""""""""""""""""""">
-map ; : 
+map ; :
 
 map <silent> <F2> :set number <CR>
 map <silent> <F2> :set number! <CR>
 
-map <silent> <F3> :set cursorline <CR>
-map <silent> <F3> :set cursorline! <CR>
+map <silent> <F3> :set relativenumber <CR>
+map <silent> <F3> :set relativenumber! <CR>
 
 
+map <silent> <F4> :set cursorline <CR>
+map <silent> <F4> :set cursorline! <CR>
+
+map <silent> <F5> :setlocal spell! spelllang=en_us <CR>
+
+map <silent> <F6> :Goyo <CR>
 
 """"""""""""""""""""""""""""""""""""""">
 "" -=> Plugins <=- 
-"""""""""""""""""""""""""""""""""""""">
+""""""""""""""""""""""""""""""""""""""">
+
+"""""""""""""""""""""""""""""""">
+call plug#begin('~/.vim/plugged')
+"""""""""""""""""""""""""""""""">
+
+" Goyo "
+Plug 'junegunn/goyo.vim'
+
+" Nerd Tree "
+Plug 'scrooloose/nerdtree'
+
+" Auto Pairs "
+Plug 'jiangmiao/auto-pairs'
+
+
+""""""""""""""""""""""""""""""""">
+call plug#end()
+""""""""""""""""""""""""""""""""">
+
+
+""""""""""""""""""""""""""""""""""""""">
+"" -=> Misc <=-
+""""""""""""""""""""""""""""""""""""""">
