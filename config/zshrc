@@ -1,0 +1,18 @@
+# Aliases
+alias panes='~/Documents/Technical/Random/Color-Scripts/color-scripts/panes'
+alias v='vim'
+alias clock='tty-clock -c -t -D -B'
+alias c='clear'
+alias r='ranger'
+alias p='python'
+alias m='sudo make clean install'
+alias record='ffmpeg -y -s 1600x900 -f x11grab -i :0.0 out.mkv'
+alias g='tcc main.c functions.c -o adventure'
+alias a='./adventure'
+alias e='exit'
+alias untar='tar -x -f'
+alias fucking='sudo'
+
+# Misc
+source ~/Documents/Technical/Random/geometry/geometry.zsh
+# setopt NO_BEEP
