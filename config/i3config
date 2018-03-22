@@ -2,6 +2,7 @@
 ## March 2018 
 ## Version 0.5 
 
+
 ## First Mod Key
 set $Mod Mod4
 
@@ -36,11 +37,15 @@ bindsym $Mod+q kill
 
 
 ## Clipboard
-bindsym $Mod+p exec clipmenu
+# bindsym $Mod+p exec clipmenu
 
 
 ## Launcher
 bindsym $Mod+d exec dmenu_run -p run -nb black -nf gray -sb grey -sf black
+
+
+## Launcher (.desktop)
+bindsym $Mod+Shift+d exec j4-dmenu-desktop
 
 
 ## Floating
@@ -61,21 +66,35 @@ bindcode 166 workspace prev
 
 
 ## Font
-font pango:Terminus 10
+font pango:Monospace 10
 
 
-## Change Focus Using Arrow Keys
+## Change Focus 
 bindsym $Mod+h focus left
 bindsym $Mod+j focus down
 bindsym $Mod+k focus up
 bindsym $Mod+l focus right
 
 
-## Move Window Using Arrow Keys
+## Change Focus Using Arrow Keys
+bindsym $Mod+Left focus left
+bindsym $Mod+Down focus down
+bindsym $Mod+Up focus up
+bindsym $Mod+Right  focus right
+
+
+## Move Window 
 bindsym $Mod+Shift+h move left
 bindsym $Mod+Shift+j move down
 bindsym $Mod+Shift+k move up
 bindsym $Mod+Shift+l move right
+
+
+## Move Window Using Arrow Keys
+bindsym $Mod+Shift+Left move left
+bindsym $Mod+Shift+Down move down
+bindsym $Mod+Shift+Up move up
+bindsym $Mod+Shift+Right move right
 
 
 ## Split Window
@@ -85,6 +104,11 @@ bindsym $Mod+Ctrl+v split v
 
 ## Fullscreen
 bindsym $Mod+Shift+f fullscreen toggle
+
+
+## Workspace Cycler
+bindsym $Mod+Tab+h workspace prev
+bindsym $Mod+Tab+l workspace next
 
 
 ## Switch To Workspace
@@ -126,15 +150,15 @@ set $darkgray #1d2021
 
 
 ## Wallpaper Switching
-bindsym $Mod+Ctrl+1 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/japanese-2.jpg
-bindsym $Mod+Ctrl+2 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/road.jpg
-bindsym $Mod+Ctrl+3 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/comf.jpg
-bindsym $Mod+Ctrl+4 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/japanese-3.jpg
-bindsym $Mod+Ctrl+5 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/rocky_coast.jpg
-bindsym $Mod+Ctrl+6 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/valley.jpg
-bindsym $Mod+Ctrl+7 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/.jpg
-bindsym $Mod+Ctrl+8 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/.jpg
-bindsym $Mod+Ctrl+9 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/.jpg
+bindsym $Mod+Ctrl+1 exec feh --bg-scale ~/Pictures/Wallpapers/Landscapes/daytime-japan.jpg
+bindsym $Mod+Ctrl+2 exec feh --bg-scale	~/Pictures/Wallpapers/Landscapes/nighttime-japan.jpg
+bindsym $Mod+Ctrl+3 exec feh --bg-scale
+bindsym $Mod+Ctrl+4 exec feh --bg-scale
+bindsym $Mod+Ctrl+5 exec feh --bg-scale
+bindsym $Mod+Ctrl+6 exec feh --bg-scale
+bindsym $Mod+Ctrl+7 exec feh --bg-scale
+bindsym $Mod+Ctrl+8 exec feh --bg-scale
+bindsym $Mod+Ctrl+9 exec feh --bg-scale
 
 
 ## Restart i3
@@ -142,8 +166,8 @@ bindsym $Mod+Shift+r restart
 
 
 ## Lock
-bindcode 156 exec i3lock-fancy -p -t ""
-#bindsym $Mod+Ctrl+l exec i3lock-fancy -p -t ""
+bindcode 156 exec i3lock-fancy -f Monospace -t "" # -p to pixelate
+# bindsym $Mod+Ctrl+l exec i3lock-fancy -p -t ""
 
 
 ## Misc Keybindings
@@ -153,7 +177,7 @@ bindsym $Mod+Ctrl+w exec find ~/Pictures/Wallpapers -type f | shuf | head -1 | x
 
 
 ## Startup 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Minimalist/minimalist.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Landscapes/pine-valley.png
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec --no-startup-id compton
 exec_always --no-startup-id xrdb -merge ~/.Xresources
@@ -168,7 +192,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 
 
 ## Misc
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 
 
 ## Resize
@@ -179,10 +203,15 @@ mode "resize" {
         bindsym $up         resize shrink height 10 px or 10 ppt
         bindsym $right      resize grow width 10 px or 10 ppt
         
-        bindsym h        resize shrink width 10 px or 10 ppt
-        bindsym j        resize grow height 10 px or 10 ppt
-        bindsym k      resize shrink height 10 px or 10 ppt
-        bindsym l       resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up  	    resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        bindsym h           resize shrink width 10 px or 10 ppt
+        bindsym j    	    resize grow height 10 px or 10 ppt
+        bindsym k     	    resize shrink height 10 px or 10 ppt
+        bindsym l      	    resize grow width 10 px or 10 ppt
         
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -199,10 +228,15 @@ mode "acc_resize" {
         bindsym $up         resize shrink height 2 px or 2 ppt
         bindsym $right      resize grow width 2 px or 2 ppt
 
-        bindsym Left        resize shrink width 2 px or 2 ppt
-        bindsym Down        resize grow height 2 px or 2 ppt
-        bindsym Up      resize shrink height 2 px or 2 ppt
-        bindsym Right       resize grow width 2 px or 2 ppt
+		bindsym Left       resize shrink width 2 px or 2 ppt
+        bindsym Down       resize grow height 2 px or 2 ppt
+        bindsym Up         resize shrink height 2 px or 2 ppt
+        bindsym Right      resize grow width 2 px or 2 ppt
+
+        bindsym h        resize shrink width 2 px or 2 ppt
+        bindsym j        resize grow height 2 px or 2 ppt
+        bindsym k      resize shrink height 2 px or 2 ppt
+        bindsym l       resize grow width 2 px or 2 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -212,6 +246,30 @@ mode "acc_resize" {
 
 bindsym $Mod1+r mode "acc_resize"
 
+
+## Gaps Mode
+mode "gaps" {
+	
+	bindsym 0			gaps inner all set 0
+	bindsym 1			gaps inner all set 10 
+	bindsym 2 			gaps inner all set 20
+	bindsym 3 			gaps inner all set 30
+	bindsym 4 			gaps inner all set 40
+	bindsym 5 			gaps inner all set 50
+	bindsym 6 			gaps inner all set 60
+	bindsym 7 			gaps inner all set 70
+	bindsym 8			gaps inner all set 80
+	bindsym 9 			gaps inner all set 90
+
+	bindsym g			gaps inner all plus 10
+	bindsym Shift+g	    gaps inner all minus 10
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+
+}
+
+bindsym $Mod+g mode "gaps"
 
 ## Auto Sizing 
 for_window [title="SimpleGUI"] floating enable
