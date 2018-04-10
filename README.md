@@ -7,6 +7,5 @@ Gavin Weiss - January 2018
   - My vimrc
   - My Xresources
   - My i3 config
-- All written by hand
 - May not work out of the box
 -----------------------------
