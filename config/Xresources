@@ -6,6 +6,9 @@ URxvt.internalBorder:   15
 URxvt.transparent:  false
 URxvt.shading:  10
 
+! custard
+custard.rows: 4
+custard.columns: 6
 
 ! Rofi
 rofi.lines: 5

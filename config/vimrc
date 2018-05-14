@@ -12,8 +12,8 @@
 "       /VVVVVVVV\++++  /VVVVVVVV\
 "       \VVVVVVVV/++++++\VVVVVVVV/
 "        |VVVVVV|++++++++/VVVVV/'
-"        |VVVVVV|++++++/VVVVV/'
-"       +|VVVVVV|++++/VVVVV/'+
+"        |VVVVVV|++++++/VVVVV/' "       
+"		+|VVVVVV|++++/VVVVV/'+
 "     +++|VVVVVV|++/VVVVV/'+++++
 "   +++++|VVVVVV|/VVV___++++++++++
 "     +++|VVVVVVVVVV/##/ +_+_+_+_
@@ -43,7 +43,7 @@ set ttyfast
 
 set autoindent
 
-set tabstop=4
+set tabstop=2
 
 
 """"""""""""""""""""""""""""""""""""""">
@@ -64,15 +64,14 @@ map <silent> <F2> :set number <CR>
 map <silent> <F2> :set number! <CR>
 
 map <silent> <F3> :set relativenumber <CR>
+map <silent> <F3> :set relativenumber! <CR>
 
 map <silent> <F4> :set cursorline <CR>
 map <silent> <F4> :set cursorline! <CR>
 
 map <silent> <F5> :setlocal spell! spelllang=en_us <CR>
 
-map <silent> <F6> :IndentGuidesToggle <CR>
-
-" map <silent> <F6> :Goyo <CR>
+map <silent> <F6> :Goyo <CR>
 
 
 """"""""""""""""""""""""""""""""""""""">
@@ -88,6 +87,12 @@ call plug#begin('~/.vim/plugged')
 
 " Jedi
 " Plug 'davidhalter/jedi-vim'
+
+" Color Preview"
+" Plug 'gorodinskiy/vim-coloresque'
+
+" Color Preview "
+Plug 'chrisbra/colorizer'
 
 " Deliminate
 " Plug 'raimondi/delimitmate'
@@ -105,7 +110,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'scrooloose/syntastic'
 
 " Goyo "
-" Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 
 " Nerd Tree "
 " Plug 'scrooloose/nerdtree'

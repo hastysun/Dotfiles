@@ -1,0 +1,23 @@
+## Aliases
+alias a='alias'
+alias c='clear'
+alias clock='tty-clock -c -t -D -B'
+alias e='exit'
+alias fucking='sudo'
+alias ipscan='sudo arp-scan --interface=wlp3s0 --localnet'
+alias j='jobs'
+alias k='killall'
+alias m='sudo make clean install'
+alias nf='neofetch'
+alias p='python'
+alias pid='echo $$'
+alias record='ffmpeg -y -s 1600x900 -f x11grab -i :0.0 -r 60 out.mp4'
+alias s='startx'
+alias sf='screenfetch'
+alias untar='tar -x -f'
+alias v='vim'
+alias watch='watch -c -n 0.1 -p -d'
+
+
+# Geometry Theme
+source ~/.geometry/geometry.zsh
