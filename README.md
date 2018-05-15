@@ -7,5 +7,7 @@ Gavin Weiss - January 2018
   - My vimrc
   - My Xresources
   - My i3 config
+  - My config.h for dwm
+  - My zshrc
 - May not work out of the box
 -----------------------------
