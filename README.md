@@ -1,6 +1,6 @@
 # dotfiles
 -----------------------------
-Gavin Weiss - January 2018
+Gavin Weiss - May 2018
 -----------------------------
 - Main repo for my dotfiles
 - Includes
