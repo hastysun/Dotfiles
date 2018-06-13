@@ -5,11 +5,11 @@ Gavin Weiss - June 2018
 - Main repo for my dotfiles
 
 - Includes
-  - My vimrc
-  - My Xresources
-  - My i3 config
-  - My config for dwm
-  - My zshrc
+	- My vimrc
+	- My Xresources
+	- My config for i3
+	- My config for dwm
+	- My zshrc
 	- My config for qutebrowser
 	- My polybar config
 
