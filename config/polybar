@@ -1,3 +1,5 @@
+;This file is really messy, I'm sorry :P
+
 [colors]
 
 	bar_bg = ${xrdb:color0}
@@ -16,14 +18,16 @@
 	urgent_bg  = ${xrdb:color1}
 	focused_bg = ${xrdb:color10}
 
-	essid_p_bg   = ${xrdb:color6}
-	down_p_bg    = #5e606c
-	cpu_p_bg     = ${xrdb:color5}
-	ram_p_bg     = ${xrdb:color11}
-	vol_p_bg     = #637b81
-	bright_p_bg  = #c29f6f
-	battery_p_bg = ${xrdb:color9}
-	time_p_bg    = ${xrdb:color10}
+
+	essid_p_bg   = #6A9FB5
+  down_p_bg    = #6A9FB5
+  cpu_p_bg     = #6A9FB5
+  ram_p_bg     = #6A9FB5
+  vol_p_bg     = #6A9FB5
+  bright_p_bg  = #6A9FB5
+  battery_p_bg = #6A9FB5
+  time_p_bg    = #6A9FB5
+
 
 ;--------------------------------------------
 ; bars                                      ;
@@ -36,6 +40,8 @@
 	offset-x = 0
 	offset-y = 0
 
+ ;tray-position = left
+
 	bottom = true
 
 	background = #000f0f0f
@@ -47,7 +53,7 @@
 	border-top-color    = #000f0f0f
 	border-bottom-color = #000f0f0f
 
-	spacing            = 1
+	spacing            = 2
 	padding-left       = 3
 	padding-right      = 3
 	module-margin-left = 2
@@ -57,9 +63,11 @@
 	font-1 = Font Awesome:pixelsize=5;3
 	font-2 = Monospace:pixelsize=10;2
 
-	modules-left   = workspaces 
-	modules-center = music ovo
-	modules-right  = essid volume battery date
+	modules-left   = battery volume
+	modules-center = workspaces
+	modules-right  = ;essid music date 
+
+	
 
 	fixed-center = true
 
@@ -67,10 +75,6 @@
 ; modules                                   ;
 ;--------------------------------------------
 
-[module/ovo]
-	label = "OvO"
-	format = <label>
-	format-prefix = OvO
 
 [module/network]
 	type          = internal/network
@@ -113,18 +117,18 @@
 
 	interval = 2
 
-	format-online = <icon-prev><label-song>
+	format-online = <label-song>
 
-	label-song         = %title%
+	label-song         =  - %title%
 	label-song-padding = 1
 
 	label                 = "%output:0:45:...%"
-	label-song-background = ${xrdb:color12}
+	label-song-background = #6A9FB5
 	label-song-foreground = ${colors.modules_fg}
 	label-padding-right   = 1
 
 	icon-prev            = 
-	icon-prev-background = ${xrdb:color12}
+	icon-prev-background = #6A9FB5
 	icon-prev-foreground = ${colors.modules_prefix_fg}
 	icon-prev-padding    = 1
 
@@ -187,7 +191,7 @@
 	format-volume-prefix-padding    = 1
 
 	label-volume            = %percentage%%
-	label-volume-background = ${colors.ram_p_bg}
+	label-volume-background = #6A9FB5
 	label-volume-foreground = ${colors.modules_fg}
 	label-volume-padding    = 1
 
@@ -313,12 +317,12 @@
 	label-mode-padding    = 1
 
 	label-focused            = %name%
-	label-focused-background = ${colors.focused_bg}
+	label-focused-background = #6A9FB5
 	label-focused-foreground = ${colors.modules_fg}
 	label-focused-padding    = 1
 
 	label-unfocused            = %name%
-	label-unfocused-background = ${colors.modules_bg}
+	label-unfocused-background = #D0D0D0
 	label-unfocused-foreground = ${colors.modules_prefix_fg}
 	label-unfocused-padding    = 1
 

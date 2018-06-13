@@ -24,6 +24,10 @@ gaps outer 0
 bindsym $Mod+Return exec st
 
 
+## nougat
+bindcode 107 exec nougat -f
+
+
 ## Terminl Drawing
 bindsym $Mod1+Return exec sh ~/Bin/terminal-drawing.sh
 
@@ -179,7 +183,7 @@ bindcode 156 exec slock
 ## Misc Keybindings
 bindcode 198 exec st -e ranger 
 bindsym $Mod+Ctrl+s exec i3-scrot
-bindsym $Mod+Ctrl+w exec feh -z --bg-scale ~/Pictures/Wallpapers/Landscapes
+bindsym $Mod+Ctrl+w exec feh -z --bg-scale ~/Wallpapers
 bindsym $Mod+Ctrl+p exec wal --theme random
 # bindsym $Mod+Ctrl+w exec wal -i ~/Pictures/Wallpapers/Landscapes
 

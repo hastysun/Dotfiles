@@ -1,3 +1,13 @@
+! custard
+custard.rows:	2
+custard.columns: 3
+custard.border_type: None
+custard.inner_border_size: 1
+custard.outer_border_size: 3
+custard.workspaces: 2
+
+
+
 ! URxvt
 URxvt.font: xft:Monospace:size=9  
 URxvt.letterSpace: 0
@@ -6,9 +16,6 @@ URxvt.internalBorder:   15
 URxvt.transparent:  false
 URxvt.shading:  10
 
-! custard
-custard.rows: 4
-custard.columns: 6
 
 ! Rofi
 rofi.lines: 5
@@ -19,8 +26,8 @@ rofi.location:  6
 rofi.X-offset:  5
 rofi.Y-offset:  5
 
-! Colors
 
+! Colors
 ! hard contrast: *background: #1d2021
 *background: #282828
 ! soft contrast: *background: #32302f

@@ -2,7 +2,7 @@
 """"""""""""""""""""""""""""""""""""""">
 " >> HastyVim
 "
-" >> April 2018
+" >> June 2018
 "
 " >> Version 1.1
 "
@@ -13,7 +13,7 @@
 "       \VVVVVVVV/++++++\VVVVVVVV/
 "        |VVVVVV|++++++++/VVVVV/'
 "        |VVVVVV|++++++/VVVVV/' "       
-"		+|VVVVVV|++++/VVVVV/'+
+"	    	+|VVVVVV|++++/VVVVV/'+
 "     +++|VVVVVV|++/VVVVV/'+++++
 "   +++++|VVVVVV|/VVV___++++++++++
 "     +++|VVVVVVVVVV/##/ +_+_+_+_
@@ -81,6 +81,9 @@ map <silent> <F6> :Goyo <CR>
 """""""""""""""""""""""""""""""">
 call plug#begin('~/.vim/plugged')
 """""""""""""""""""""""""""""""">
+
+" Vim Live"
+Plug 'xuhdev/vim-latex-live-preview'
 
 " Indent Guides
 " Plug 'nathanaelkane/vim-indent-guides'
