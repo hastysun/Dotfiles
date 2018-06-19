@@ -1,7 +1,3 @@
-
-
-
-
 /* See LICENSE file for copyright and license details.
  *
  * dynamic window manager is designed like any other X client as well. It is
@@ -2137,40 +2133,3 @@ main(int argc, char *argv[])
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
 }
-
-// Temp 
-typedef struct Theme {
-	char* name;
-	void (*f)();
-} Theme;
-
-
-static void mint(void);
-static void arizona(void);
-
-
-void
-mint()
-{
-static char normbordercolor[] = "#949093";
-static char normbgcolor[]     = "#151b1e";
-static char normfgcolor[]     = "#d4ced2";
-static char selbordercolor[]  = "#d4ced2";
-static char selbgcolor[]      = "#619668";
-static char selfgcolor[]      = "#d4ced2";
-}
-
-
-void
-arizona()
-{
-static char normbordercolor[] = "#949093";
-static char normbgcolor[]     = "#151b1e";
-static char normfgcolor[]     = "#d4ced2";
-static char selbordercolor[]  = "#d4ced2";
-static char selbgcolor[]      = "#689990";
-static char selfgcolor[]      = "#d4ced2";
-}
-
-
-// End Temp

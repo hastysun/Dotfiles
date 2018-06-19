@@ -113,22 +113,12 @@ static const char *scrot[] 		 = { "nougat", "-f", NULL };
 
 
 
-static const Theme theme[] = {
-
-  { "arizona",  arizona },
-  { "mint",     mint },
-
-	};
-
-
 
 // Keybindings
 static Key keys[] = {
 
 /* modifier            key										function          argument */
 
-	{ Super|ShiftMask,	 28,	 /* t */					spawn,						{.v = mint },
-  { Super,						 28,	 /* t */					spawn,						{.v = &theme[1]} },
 	{ Super,      			 27,	 /* r */					spawn,		    		{.v = ranger } },
 	{ Super,		      	 40,	 /* d */					spawn, 			    	{.v = dmenucmd } },
 	{ Alt,         	  	 36,	 /* Return */			spawn,     		    {.v = terminal } },

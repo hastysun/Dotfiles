@@ -4,19 +4,6 @@
 // themes.h
 
 
-// Functions
-/*
-static const Theme theme[] = {
-
-	{ "arizona",	arizona },
-	{ "mint", 		mint },
-
-};
-*/
-
-
-
-
 #define Arizona
 
 #ifdef Mint
