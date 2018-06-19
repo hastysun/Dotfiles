@@ -29,15 +29,28 @@ static const int resizehints 				= 0;
 
 
 //Fonts
-static const char *fonts[] 		= "IBM Plex Mono:size=10";
+static const char *fonts[]	= {
+																"IBM Plex Mono:size=10",
+																"Source Code Pro:size=10",
+																"Font Awesome",
+															};
+
 static const char dmenufont[] = "IBM Plex Mono:size=10";
 
 
 
 
-// Tags
-static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",};
+// Workspace Tags
+
+// 9 Workspaces
+// static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+
+// 5 workspaces
+// static const char *tags[] = { "I", "II", "III", "IV", "V" };
+// static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "H", "A", "S", "T", "Y", };
 
 
 
@@ -46,7 +59,8 @@ static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", 
 static const Rule rules[] = {
 	/* class				instance   title           tags mask   floating   monitor */
 	{ "mpv",				NULL,			 NULL,			      1 << 2,			 0,					-1 },
-	};
+};
+
 
 
 
@@ -99,6 +113,7 @@ static const char *scrot[] 		 = { "nougat", "-f", NULL };
 
 
 
+
 // Keybindings
 static Key keys[] = {
 
@@ -106,7 +121,6 @@ static Key keys[] = {
 
 	{ Super,      			 27,	 /* r */					spawn,		    		{.v = ranger } },
 	{ Super,		      	 40,	 /* d */					spawn, 			    	{.v = dmenucmd } },
-	{ Alt,               33,	 /* p */					spawn,       	    {.v = dmenucmd } },
 	{ Alt,         	  	 36,	 /* Return */			spawn,     		    {.v = terminal } },
 	{ Alt,               56,	 /* b */					togglebar,      	{0} },
 	{ Alt,               44,	 /* j */					focusstack, 	    {.i = +1 } },
