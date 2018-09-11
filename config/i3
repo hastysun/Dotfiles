@@ -1,5 +1,5 @@
 ## Gavin's i3 config
-## March 2018 
+## September 2018 
 ## Version 0.5 
 
 
@@ -26,6 +26,7 @@ bindsym $Mod+Return exec st
 
 ## nougat
 bindcode 107 exec nougat -f
+# bindcode 50 + 107 exec nougat
 
 
 ## Terminl Drawing
@@ -33,7 +34,7 @@ bindsym $Mod1+Return exec sh ~/Bin/terminal-drawing.sh
 
 
 ## Fallback Terminal
-#bindsym $Mod1+Return exec urxvt
+# bindsym $Mod1+Return exec urxvt
 
 
 ## Secondary Fallback Terminal
@@ -57,7 +58,17 @@ bindsym $Mod+Shift+d exec j4-dmenu-desktop
 
 
 ## Floating
-bindsym $Mod+f floating toggle
+bindsym $Mod+space floating toggle
+
+
+## Compton
+bindsym $Mod+c exec compton --vsync opengl
+bindsym $Mod+Shift+c exec killall compton
+
+
+## Polybar
+bindsym $Mod+p exec sh ~/.config/polybar/launch.sh
+bindsym $Mod+Shift+p exec killall polybar
 
 
 ## Sticky Windows
@@ -181,6 +192,7 @@ bindcode 156 exec slock
 
 
 ## Misc Keybindings
+bindsym $Mod+f exec firefox
 bindcode 198 exec st -e ranger 
 bindsym $Mod+Ctrl+s exec i3-scrot
 bindsym $Mod+Ctrl+w exec feh -z --bg-scale ~/Wallpapers
@@ -192,7 +204,7 @@ bindsym $Mod+Ctrl+p exec wal --theme random
 ## Startup 
 # exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Landscapes/city-morning-fog-dark.jpg
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-exec --no-startup-id compton
+exec --no-startup-id compton --vsync opengl
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 # exec_always --no-startup-id wal -n -i ~/Pictures/Wallpapers/Landscapes/beach.jpg -a 95
 exec --no-startup-id dunst
@@ -288,6 +300,7 @@ mode "gaps" {
 }
 
 bindsym $Mod+g mode "gaps"
+
 
 ## Auto 
 for_window [title="SimpleGUI"] floating enable
