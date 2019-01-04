@@ -1,6 +1,6 @@
 # dotfiles
 -----------------------------
-Gavin Weiss - June 2018
+Gavin Weiss - January 2019
 -----------------------------
 - Main repo for my dotfiles
 
@@ -15,5 +15,5 @@ Gavin Weiss - June 2018
 
 - Any questions? Contact me!
 	- hasty459@gmail.com
-	- hasty#4774
+	- HastySun on Telegram
 -----------------------------
